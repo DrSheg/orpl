@@ -205,6 +205,29 @@ For more information on the different markers defined both in pytest and in the 
 pytest –markers
 ```
 
+<<<<<<< HEAD
+=======
+### Unit testing vs Performance testing
+
+
+The tests folder contains two subfolders: unit and performance. Unit testing is used to verify that the code works as intended, while performance testing is used to check if the code runs within an acceptable time or to a good enough standard of precision. Add the name of the folder you want to run if you want to isolate that one type of test.
+
+For instance, to run only unit tests:
+```
+pytest unit -m "cosmic_ray"
+```
+
+![Pytest -s example printed comment from test file](documentation/screenshots/Pytest_Demo_9.png)
+
+To run only performance tests:
+```
+pytest performance -m "cosmic_ray"
+```
+
+This will save time if you only want to check units or performance without running everything.
+
+
+>>>>>>> 8e8d8fa (Safeguarding all the updates to the test files)
 ### Printing messages
 
 Since pytest will not print out text on code execution, you can use a command to get the print outputs when debugging:
