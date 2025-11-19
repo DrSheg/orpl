@@ -191,6 +191,7 @@ Markers have been implemented to organize tests by module, with one marker per m
 pytest -m "normalization”
 ```
 This command will isolate all the tests that have the normalization mark on them, deselecting the 22 metrics tests that would just get in the way.
+
 ![Pytest -m "normalization" deselecting everything else](documentation/screenshots/Pytest_Demo_4.png)
 
 It is also possible to select multiple tests at once with this method by adding more modules in the command. For example:
@@ -205,8 +206,6 @@ For more information on the different markers defined both in pytest and in the 
 pytest –markers
 ```
 
-<<<<<<< HEAD
-=======
 ### Unit testing vs Performance testing
 
 
@@ -227,7 +226,6 @@ pytest performance -m "cosmic_ray"
 This will save time if you only want to check units or performance without running everything.
 
 
->>>>>>> 8e8d8fa (Safeguarding all the updates to the test files)
 ### Printing messages
 
 Since pytest will not print out text on code execution, you can use a command to get the print outputs when debugging:
