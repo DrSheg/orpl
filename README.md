@@ -137,6 +137,112 @@ Different smallest bubble widths can be specified for different regions of the s
 
 ![Bubblefill with multiple smallest bubble widths](documentation/bacon_multi.gif)
 
+
+
+## Pytest
+
+### Installing Pytest
+
+Pytest is a python extension that facilitates testing with features such as automatic test discovery, fixtures, parameterization (markers and config) and additional extensions such as pytest-cov. 
+
+Pytest should be installed in your virtual environment using pip:
+```
+pip install pytest
+```
+
+Same goes for pytest-cov:
+```
+pip install pytest-cov
+```
+
+### Testing Code:
+
+Once pytest has been installed, you can start running tests on existing software using terminal commands. First you must enter the tests directory from the root of the project:
+
+```
+cd tests
+```
+
+From there, a testing environment has been set up so that you can test modules in the src folder simply by running commands in your terminal. For instance, if you simply run the following command:
+```
+pytest
+```
+Every test will run and you will see what portion of the code works for every available module. Each green dot means that a test was successful, while an F means a fail. For each module (or rather their markers, more on that later) the name is shown in the layout.
+
+![Pytest session test results](documentation/screenshots/Pytest_Demo_1.png)
+
+This comes with a report on what went wrong in the tests, separated by failures and warnings.
+
+![Pytest session summary report](documentation/screenshots/Pytest_Demo_2.png)
+
+
+### Verbose Option
+To add further precision to the output, in case you want to see the name of the tests you are running, run the command with the verbose option 
+```
+pytest -v
+```
+Every test name is shown and you can now pinpoint at what point in the file something goes wrong. For instance, a warning is given for “test__raman_snr_with_infinite” due to divisions with numpy.inf, so the completion list on the right turns yellow. Furthermore, “test_will_fail” gets a FAILED mark on the left, so we would know which part of the code breaks whenever we use pytest -v to debug errors.
+
+![Pytest verbose gives more details](documentation/screenshots/Pytest_Demo_3.png)
+
+### Markers
+Markers have been implemented to organize tests by module, with one marker per module name in both unit testing and performance testing. They are the reason titles are possible for every test section, making it clear which modules might cause trouble in the code. Pytest markers also give devs the option of isolating specific modules. 
+```
+pytest -m "normalization”
+```
+This command will isolate all the tests that have the normalization mark on them, deselecting the 22 metrics tests that would just get in the way.
+![Pytest -m "normalization" deselecting everything else](documentation/screenshots/Pytest_Demo_4.png)
+
+It is also possible to select multiple tests at once with this method by adding more modules in the command. For example:
+```
+pytest -m “normalization or metrics
+```
+This would test everything with either a normalization or a metrics marker.
+![You may include as many markers as you want to](documentation/screenshots/Pytest_Demo_5.png)
+
+For more information on the different markers defined both in pytest and in the customizable pytest.ini file, just input:
+```
+pytest –markers
+```
+
+### Printing messages
+
+Since pytest will not print out text on code execution, you can use a command to get the print outputs when debugging:
+```
+pytest -v -s
+```
+The printed output can either be placed in the testing function itself, or in the main module to see if you can even reach a certain point in your code, of you can try and see why your code might be failing by printing out an array of spectra.
+
+![Pytest -s example printed comment from test file](documentation/screenshots/Pytest_Demo_6.png)
+
+## Coverage
+
+### How to use the Pytest-Cov Extension
+
+The pytest-cov extension checks what percentage of the code in a module runs when you test it. 
+*Note: This always runs every module by default because __init__.py initializes everything when orpl runs
+
+```
+pytest --cov -m “metrics”
+```
+Used pytest --cov for the metrics file:
+![Pytest coverage report on running test_metrics](documentation/screenshots/Pytest_Demo_7.png)
+
+The Image above shows coverage on tests when running the metrics marker. It shows that 100% of the statements in the metrics.py file run during the test, while other functions have leftover coverage from __init__.py and other function calls such as importing snv from normalization for metrics.assi(). 
+
+
+### Coverage Reports
+
+Simply using pytest --cov does not give the full picture for what is being covered. Instead of going by trial and error, you can generate an html report that you can open in your web browser.
+
+```
+pytest --cov-report=html
+```
+After calling this function, the htmlcov folder will be created, and pytest-cov will either create or update the contents of html-cov with new detailed coverage reports.
+
+![Detailed html coverage report of a normalization.py](documentation/screenshots/Pytest_Demo_8.png)
+
+
 ## How to cite this work
 
 Guillaume Sheehy, Fabien Picot, Frédérick Dallaire, Katherine Ember, Tien Nguyen, Kevin Petrecca, Dominique Trudel, and Frédéric Leblond "Open-sourced Raman spectroscopy data processing package implementing a baseline removal algorithm validated from multiple datasets acquired in human tissue and biofluids," Journal of Biomedical Optics 28(2), 025002 (21 February 2023). https://doi.org/10.1117/1.JBO.28.2.025002
@@ -187,3 +293,5 @@ URL = {https://doi.org/10.1117/1.JBO.28.2.025002}
 - **Guillaume Sheehy** | guillaume.sheehy@polymtl.ca
 - **Frédérick Dallaire**
 - **Fabien Picot**
+- **Samuel Pineau**
+"# orpl-backup" 
