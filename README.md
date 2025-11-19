@@ -155,6 +155,11 @@ Same goes for pytest-cov:
 pip install pytest-cov
 ```
 
+And also for pytest-timeout:
+```
+pip install pytest-timeout
+```
+
 ### Testing Code:
 
 Once pytest has been installed, you can start running tests on existing software using terminal commands. First you must enter the tests directory from the root of the project:
