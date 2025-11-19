@@ -1,0 +1,15 @@
+[run]
+source = ../src/orpl
+omit = 
+    */__init__.py
+
+
+
+[report]
+source = ../src/orpl
+omit = 
+    */__init__.py
+    */__main__.py
+    */conftest.py
+    */gui/*
+skip_empty = True
