@@ -141,6 +141,38 @@ Different smallest bubble widths can be specified for different regions of the s
 
 Guillaume Sheehy, Fabien Picot, Frédérick Dallaire, Katherine Ember, Tien Nguyen, Kevin Petrecca, Dominique Trudel, and Frédéric Leblond "Open-sourced Raman spectroscopy data processing package implementing a baseline removal algorithm validated from multiple datasets acquired in human tissue and biofluids," Journal of Biomedical Optics 28(2), 025002 (21 February 2023). https://doi.org/10.1117/1.JBO.28.2.025002
 
+# Pytest
+
+
+This directory contains the unit and performance tests for the ORPL (Open Raman Processing Library). The tests are built using the `pytest` framework and are designed to ensure the correctness, robustness, and performance of the library's functions.
+
+
+## Directory Structure
+
+
+The test suite is organized into two main categories: `unit` tests, which verify individual components in isolation, and `performance` tests, which assess the accuracy and behavior of functions on more complex datasets.
+
+
+## Running Tests
+
+
+To run the test suite, navigate to the root directory of the repository and execute `pytest`.
+
+
+1.  **Install dependencies:**
+    ```bash
+    pip install -e .[dev]
+    # and other dependencies from the main project
+    ```
+
+
+2.  **Run all tests:**
+    ```bash
+    pytest
+    ```
+
+
+
 ### BibTex (.bib)
 
 ```
