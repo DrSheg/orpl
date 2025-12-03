@@ -172,6 +172,21 @@ To run the test suite, navigate to the root directory of the repository and exec
     ```
 
 
+3.  **Run tests for a specific module:**
+    Use the `-m` flag to run tests marked with a specific tag (defined in `pyproject.toml`).
+    ```bash
+    # Run only calibration tests (use quotation marks)
+    pytest -m "calibration"
+
+
+    # Run more than one module
+    pytest -m "metrics or normalization"
+
+
+    # Run only performance/unit tests
+    pytest tests/unit
+    ```
+
 
 ### BibTex (.bib)
 
